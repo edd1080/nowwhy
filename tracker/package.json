@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --minify --target=es2015 --outfile=../public/tracker.js"
+    "build": "npx esbuild src/index.ts --bundle --minify --target=es2015 --outfile=../public/tracker.js"
   },
   "devDependencies": {
     "esbuild": "^0.24.0"
