@@ -1,0 +1,520 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NowWhy - Real-time Visitor Intelligence</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+/* Animations from original */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes blurIn { from { opacity: 0; filter: blur(8px); } to { opacity: 1; filter: blur(0); } }
+@keyframes blob {
+0% { transform: translate(0px, 0px) scale(1); }
+33% { transform: translate(30px, -50px) scale(1.1); }
+66% { transform: translate(-20px, 20px) scale(0.9); }
+100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-fade-in { animation: fadeIn 0.8s ease-out both; }
+.animate-slide-in { animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-blur-in { animation: blurIn 1s ease-out both; }
+.animate-blob { animation: blob 7s infinite; }
+.animation-delay-2000 { animation-delay: 2s; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+/* 3D Utilities */
+.perspective-1000 { perspective: 1000px; }
+.preserve-3d { transform-style: preserve-3d; }
+.rotate-y-12 { transform: rotateY(12deg) rotateX(5deg); }
+.rotate-hover-0:hover { transform: rotateY(0deg) rotateX(0deg); }
+</style>
+
+</head>
+<body class="bg-brand-accent text-slate-900 antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden">
+
+    <!-- Hero Section -->
+    <div class="min-h-screen grid grid-cols-1 lg:grid-cols-12 overflow-hidden bg-white relative">
+        
+        <!-- Left Sidebar / Content -->
+        <div class="lg:col-span-4 flex flex-col lg:p-10 z-20 bg-white border-slate-100 border-r p-6 justify-between relative shadow-2xl">
+            
+            <!-- Header/Nav -->
+            <div class="flex items-center justify-between animate-fade-in">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-brand-accent text-white flex items-center justify-center font-semibold text-lg rounded-lg shadow-lg shadow-orange-500/30">
+                        <iconify-icon icon="lucide:zap" width="18"></iconify-icon>
+                    </div>
+                    <span class="text-lg font-semibold tracking-tight text-slate-900">NowWhy</span>
+                </div>
+                
+                <div class="hidden md:flex gap-2">
+                    <button class="p-2 rounded-full hover:bg-slate-50 text-slate-500 transition-colors">
+                        <iconify-icon icon="lucide:menu" width="20"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Title -->
+            <div class="my-12 lg:my-0">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-brand-600 text-xs font-semibold tracking-wide uppercase mb-6 animate-slide-in">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                    </span>
+                    <span>Live Intelligence</span>
+                </div>
+
+                <h1 class="text-5xl lg:text-7xl font-semibold tracking-tighter leading-[0.95] text-slate-900 animate-slide-in delay-100">
+                    Real-time
+                    <br>
+                    <span class="text-brand-accent">Awareness.</span>
+                </h1>
+                
+                <p class="mt-6 text-base font-normal text-slate-500 leading-relaxed max-w-sm animate-slide-in delay-150">
+                    Traditional analytics tell you what happened yesterday. NowWhy tells you who is stuck on pricing <strong>right now</strong>.
+                </p>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="space-y-8 animate-slide-in delay-200">
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center gap-3 text-xs font-medium text-slate-500">
+                        <iconify-icon icon="lucide:check-circle-2" class="text-brand-500" width="16"></iconify-icon>
+                        <span>Intent Classification</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs font-medium text-slate-500">
+                        <iconify-icon icon="lucide:check-circle-2" class="text-brand-500" width="16"></iconify-icon>
+                        <span>Friction Detection</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 border-t border-slate-100 pt-6">
+                    <button class="pl-5 pr-2 py-2 bg-slate-900 text-white rounded-full transition-all hover:bg-brand-accent hover:shadow-lg hover:shadow-orange-500/20 flex items-center gap-4 group w-full sm:w-auto justify-between">
+                        <span class="text-sm font-semibold tracking-wide">Start Tracking</span>
+                        <div class="w-8 h-8 bg-white text-slate-900 rounded-full flex items-center justify-center group-hover:text-brand-accent transition-colors">
+                             <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+                        </div>
+                    </button>
+                    <span class="text-xs text-slate-400 font-medium hidden sm:block">No credit card required</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Art / Abstract -->
+        <div class="lg:col-span-8 overflow-hidden min-h-[50vh] lg:min-h-auto bg-slate-50 relative">
+            
+            <!-- Abstract Background -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            
+            <!-- Blobs -->
+            <div class="absolute top-10 right-20 w-96 h-96 bg-orange-400 rounded-full mix-blend-multiply filter blur-[80px] opacity-20 animate-blob"></div>
+            <div class="absolute bottom-10 left-20 w-96 h-96 bg-yellow-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-30 animate-blob animation-delay-2000"></div>
+
+            <div class="absolute inset-0 flex items-center justify-center overflow-hidden p-6 md:p-0">
+                
+                <!-- 3D UI Card -->
+                <div class="relative z-10 perspective-1000 group">
+                    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200/60 w-full max-w-md transform rotate-y-12 transition-all duration-700 ease-out group-hover:rotate-0 preserve-3d">
+                        
+                        <!-- Window Chrome -->
+                        <div class="h-10 border-b border-slate-100 flex items-center px-4 gap-2 bg-slate-50/50 rounded-t-2xl">
+                            <div class="flex gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-slate-200"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-slate-200"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-slate-200"></div>
+                            </div>
+                            <div class="ml-auto text-[10px] font-mono text-slate-400 bg-white px-2 py-0.5 rounded border border-slate-100 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                Live Feed
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 space-y-4">
+                            <!-- Visitor 1 -->
+                            <div class="flex items-start gap-4 p-3 rounded-xl bg-orange-50/50 border border-orange-100/50 transition-colors">
+                                <div class="w-8 h-8 rounded-full bg-white border border-orange-100 flex items-center justify-center shadow-sm text-brand-500 shrink-0">
+                                    <iconify-icon icon="lucide:user" width="14"></iconify-icon>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <p class="text-xs font-semibold text-slate-800">Visitor #8392 <span class="text-slate-400 font-normal">from San Francisco</span></p>
+                                        <span class="text-[10px] font-bold text-brand-600 bg-orange-100 px-1.5 py-0.5 rounded">HIGH_INTENT</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mb-2">Comparing pricing plans for 3m 21s</p>
+                                    <div class="h-1 w-full bg-orange-100 rounded-full overflow-hidden">
+                                        <div class="h-full bg-brand-500 w-[85%] rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Visitor 2 -->
+                            <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition-colors opacity-60">
+                                <div class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm text-slate-400 shrink-0">
+                                    <iconify-icon icon="lucide:user" width="14"></iconify-icon>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <p class="text-xs font-semibold text-slate-800">Visitor #8393 <span class="text-slate-400 font-normal">from London</span></p>
+                                        <span class="text-[10px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded">FRICTION</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500">Stuck on signup form (2m)</p>
+                                </div>
+                            </div>
+
+                             <!-- Slack Notification Pop -->
+                             <div class="absolute -right-8 top-1/2 translate-x-4 bg-[#1e1e1e] p-3 rounded-lg shadow-2xl border border-white/10 w-64 animate-slide-in delay-500">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <iconify-icon icon="lucide:slack" width="14" class="text-white"></iconify-icon>
+                                    <span class="text-[10px] font-bold text-white uppercase tracking-wider">Slack Alert</span>
+                                </div>
+                                <p class="text-[11px] text-slate-300 leading-snug">
+                                    <span class="text-white font-semibold">Hot Lead:</span> Visitor just visited Pricing twice and moved to Signup.
+                                </p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Big Typography Overlay -->
+            <div class="absolute bottom-0 right-0 mix-blend-overlay opacity-[0.03] pointer-events-none select-none">
+                <span class="text-[12rem] lg:text-[18rem] font-bold leading-none tracking-tighter text-slate-900">
+                    NOW
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section (Bento Grid) -->
+    <section class="bg-brand-accent pt-24 pb-24 relative overflow-hidden">
+        <!-- Noise Texture -->
+        <div class="absolute inset-0 opacity-[0.15] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end gap-6 mb-16 justify-between animate-slide-in">
+                <div class="">
+                    <span class="text-orange-200 text-xs font-semibold tracking-widest uppercase">
+                        Why NowWhy?
+                    </span>
+                    <h2 class="text-3xl lg:text-5xl font-semibold text-white tracking-tight mt-3 max-w-xl">
+                        Turn Traffic into Revenue with <span class="opacity-50">Real Context.</span>
+                    </h2>
+                </div>
+                <div class="flex gap-2">
+                    <button class="w-10 h-10 rounded-full border border-orange-400/50 flex items-center justify-center text-white hover:bg-white hover:text-brand-accent transition-colors">
+                        <iconify-icon icon="lucide:arrow-down" width="20"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                
+                <!-- Card 1: Intent Classification (Large) -->
+                <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-white rounded-3xl p-8 lg:p-10 overflow-hidden relative group">
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="mb-8">
+                            <div class="w-12 h-12 bg-orange-100 rounded-xl mb-6 flex items-center justify-center text-brand-600">
+                                <iconify-icon icon="lucide:target" width="24"></iconify-icon>
+                            </div>
+                            <h3 class="text-2xl lg:text-3xl text-slate-900 font-semibold mb-3 tracking-tight">
+                                Intent Classification (The Wedge)
+                            </h3>
+                            <p class="text-slate-500 leading-relaxed max-w-md">
+                                Don't guess. We automatically label visitors based on behavior patterns. Distinguish between window shoppers and ready buyers.
+                            </p>
+                        </div>
+
+                        <!-- Visual Representation -->
+                        <div class="flex gap-3 flex-wrap">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-green-50 border border-green-100 text-green-700 text-xs font-bold uppercase tracking-wide">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> High_Intent
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wide">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Evaluating
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-slate-50 border border-slate-100 text-slate-500 text-xs font-bold uppercase tracking-wide">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Bounce_Risk
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative Background element -->
+                    <div class="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-orange-50/50 to-transparent"></div>
+                </div>
+
+                <!-- Card 2: Real-time -->
+                <div class="bg-slate-900 rounded-3xl p-8 overflow-hidden relative group border border-white/5">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="text-brand-400 font-mono text-xs">LIVE_FEED</span>
+                                <span class="flex h-2 w-2 relative">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                </span>
+                            </div>
+                            <h3 class="text-xl text-white font-semibold tracking-tight mb-2">Real-time Awareness</h3>
+                            <p class="text-slate-400 text-sm">"Someone from NYC is on pricing." Know what's happening NOW.</p>
+                        </div>
+                        
+                        <!-- Mini Feed Visual -->
+                        <div class="mt-6 space-y-2">
+                            <div class="bg-white/5 p-2 rounded border border-white/5 flex gap-2 items-center">
+                                <div class="w-1 h-8 bg-brand-500 rounded-full"></div>
+                                <div class="text-[10px] text-slate-300 font-mono">
+                                    User_291 &gt; /pricing<br>
+                                    <span class="text-slate-500">3s ago</span>
+                                </div>
+                            </div>
+                             <div class="bg-white/5 p-2 rounded border border-white/5 flex gap-2 items-center opacity-50">
+                                <div class="w-1 h-8 bg-slate-600 rounded-full"></div>
+                                <div class="text-[10px] text-slate-300 font-mono">
+                                    User_290 &gt; /blog<br>
+                                    <span class="text-slate-500">12s ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Friction Detection -->
+                <div class="bg-[#fefce8] rounded-3xl p-8 overflow-hidden relative group border border-yellow-100">
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                            <iconify-icon icon="lucide:alert-triangle" width="20"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl text-yellow-900 font-semibold tracking-tight mb-2">Friction Detection</h3>
+                        <p class="text-yellow-800/80 text-sm mb-4">Identify pricing loops, form stalls, and rage clicks instantly.</p>
+                        
+                        <div class="mt-auto bg-white p-3 rounded-xl shadow-sm border border-yellow-100/50 flex items-center gap-3">
+                            <iconify-icon icon="lucide:refresh-cw" class="text-yellow-500" width="16"></iconify-icon>
+                            <span class="text-xs font-semibold text-slate-700">Pricing Loop Detected</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Slack Alerts (Large) -->
+                <div class="col-span-1 md:col-span-2 bg-[#1e1e1e] rounded-3xl p-8 lg:p-10 relative overflow-hidden group">
+                     <!-- Background Glow -->
+                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-500/20 rounded-full filter blur-[60px]"></div>
+
+                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                        <div class="flex-1">
+                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider mb-4">
+                                <iconify-icon icon="lucide:zap" width="12"></iconify-icon>
+                                <span>Actionable</span>
+                            </div>
+                            <h3 class="text-2xl text-white font-semibold tracking-tight mb-3">
+                                Alerts right where you work
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                "A visitor from Google Ads just spent 4 minutes on pricing and moved to signup." Jump into chat at the perfect moment.
+                            </p>
+                        </div>
+
+                        <!-- Slack Mockup -->
+                        <div class="w-full md:w-1/2 bg-[#2c2c2c] rounded-xl border border-white/10 p-4 shadow-2xl">
+                            <div class="flex items-center gap-2 mb-3 border-b border-white/5 pb-2">
+                                <div class="w-4 h-4 rounded bg-emerald-500 flex items-center justify-center">
+                                    <iconify-icon icon="lucide:check" width="10" class="text-white"></iconify-icon>
+                                </div>
+                                <span class="text-xs text-slate-300 font-bold">#growth-alerts</span>
+                                <span class="text-[10px] text-slate-500 ml-auto">Just now</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-8 h-8 rounded bg-brand-500 flex items-center justify-center text-white shrink-0">
+                                    <span class="font-bold text-xs">NW</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xs font-bold text-white">NowWhy Bot</span>
+                                        <span class="text-[10px] bg-slate-700 text-slate-300 px-1 rounded">APP</span>
+                                    </div>
+                                    <p class="text-xs text-slate-300 mt-1">
+                                        🔥 <span class="text-white font-semibold">High Intent Visitor Detected!</span><br>
+                                        Visitor from <span class="text-blue-400">San Francisco</span> has been on <span class="bg-slate-700 px-1 rounded">/pricing</span> for 3 minutes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer/Integration Section -->
+    <section class="py-24 bg-white relative overflow-hidden border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                
+                <!-- Left Content -->
+                <div class="order-2 lg:order-1 animate-slide-in">
+                    <h2 class="text-3xl lg:text-5xl font-semibold text-slate-900 tracking-tight leading-[0.95] mb-6">
+                        Drop-in simplicity.
+                        <br>
+                        <span class="text-brand-500">Under 2KB.</span>
+                    </h2>
+                    
+                    <p class="text-slate-600 text-lg font-light leading-relaxed mb-8">
+                        We don't bloat your site. Our ultra-lightweight script loads asynchronously and begins classifying intent immediately. No complex configuration required.
+                    </p>
+
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mt-1">
+                                <iconify-icon icon="lucide:check" width="16"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-slate-900 font-semibold text-sm">Privacy Friendly</h3>
+                                <p class="text-slate-500 text-sm mt-1">GDPR compliant without cookies.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mt-1">
+                                <iconify-icon icon="lucide:check" width="16"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-slate-900 font-semibold text-sm">Magic Link Auth</h3>
+                                <p class="text-slate-500 text-sm mt-1">Secure, passwordless access to your dashboard.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="inline-flex items-center gap-2 text-brand-600 font-semibold text-sm hover:text-brand-700 transition-colors group">
+                        Read Integration Docs
+                        <iconify-icon icon="lucide:arrow-right" width="16" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                    </a>
+                </div>
+
+                <!-- Right Content: Code -->
+                <div class="order-1 lg:order-2">
+                    <div class="bg-[#1e1e1e] rounded-xl shadow-2xl overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <div class="flex items-center px-4 py-3 bg-[#252526] border-b border-white/5">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                            </div>
+                            <div class="ml-4 text-xs text-slate-500 font-mono">index.html</div>
+                        </div>
+                        <div class="p-6 overflow-x-auto">
+                            <pre class="font-mono text-sm leading-relaxed text-slate-300"><code><span class="text-slate-500">&lt;!-- Just add this line to your &lt;head&gt; --&gt;</span>
+<span class="text-purple-400">&lt;script</span> <span class="text-orange-400">src</span>=<span class="text-green-400">"https://cdn.nowwhy.com/tracker.js"</span>
+        <span class="text-orange-400">data-id</span>=<span class="text-green-400">"nw_live_x829s"</span>
+        <span class="text-orange-400">defer</span><span class="text-purple-400">&gt;&lt;/script&gt;</span>
+
+<span class="text-slate-500">&lt;!-- That's it. You're live. --&gt;</span></code></pre>
+                        </div>
+                        <div class="bg-[#2d2d2d] px-4 py-2 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">System Active</span>
+                            </div>
+                            <span class="text-[10px] font-mono text-slate-500">1.8KB gzipped</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner / CTA -->
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-brand-accent rounded-[2.5rem] p-12 text-center relative overflow-hidden shadow-2xl shadow-orange-500/30">
+                <!-- Decorative Circles -->
+                <div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-64 h-64 bg-yellow-500/20 rounded-full blur-3xl"></div>
+
+                <div class="relative z-10">
+                    <h2 class="text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-6">
+                        Stop flying blind.
+                    </h2>
+                    <p class="text-orange-100 text-lg mb-8 max-w-xl mx-auto font-light">
+                        Deploy in minutes. Polish later. Get the insights you need to fix your funnel today.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button class="px-8 py-4 bg-white text-brand-600 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-slate-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            Start Free Trial
+                        </button>
+                        <button class="px-8 py-4 bg-brand-600 text-white border border-white/20 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-brand-700 transition-all">
+                            View Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 pt-20 pb-12 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-brand-accent text-white flex items-center justify-center rounded-lg">
+                            <iconify-icon icon="lucide:zap" width="16"></iconify-icon>
+                        </div>
+                        <span class="text-lg font-bold text-slate-900 tracking-tight">NowWhy</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-xs mb-6">
+                        The visitor intelligence platform for founders who want to know what's actually happening on their website.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-slate-400 hover:text-brand-500 transition-colors"><iconify-icon icon="lucide:twitter" width="20"></iconify-icon></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-500 transition-colors"><iconify-icon icon="lucide:github" width="20"></iconify-icon></a>
+                        <a href="#" class="text-slate-400 hover:text-brand-500 transition-colors"><iconify-icon icon="lucide:linkedin" width="20"></iconify-icon></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm mb-4">Product</h4>
+                    <ul class="space-y-3 text-sm text-slate-500">
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Live Demo</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors flex items-center gap-2">Changelog <span class="bg-green-100 text-green-700 text-[10px] font-bold px-1.5 py-0.5 rounded">New</span></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm mb-4">Resources</h4>
+                    <ul class="space-y-3 text-sm text-slate-500">
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">API Reference</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate-400 font-medium">© 2025 NowWhy Inc. All rights reserved.</p>
+                <div class="flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    <span class="text-xs text-slate-600 font-medium">All systems operational</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>

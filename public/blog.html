@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Test Site</title>
+  <script defer src="/tracker.js" data-project="pk_4aac0948076aae47d12ab263" data-endpoint="http://localhost:3000/api/v1/collect"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+    h1 { color: #1e293b; }
+    .nav { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 20px; }
+    .nav a { font-weight: 500; color: #3b82f6; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+    .nav a.active { color: #1e293b; border-bottom: 2px solid #3b82f6; }
+    .post { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; }
+    .post h3 { margin-top: 0; }
+    .post h3 a { color: #1e293b; text-decoration: none; }
+    .post h3 a:hover { color: #3b82f6; }
+    .meta { color: #6b7280; font-size: 0.875rem; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/test.html">Home</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/signup.html">Signup</a>
+    <a href="/features.html">Features</a>
+    <a href="/blog.html" class="active">Blog</a>
+  </nav>
+
+  <h1>Blog</h1>
+  <p>Insights on visitor intent and conversion optimization.</p>
+
+  <div class="post">
+    <h3><a href="#">Understanding Visitor Intent in 2024</a></h3>
+    <p class="meta">January 5, 2024</p>
+    <p>Learn how to identify what your visitors really want and optimize your site accordingly.</p>
+  </div>
+
+  <div class="post">
+    <h3><a href="#">Why Traditional Analytics Miss the Point</a></h3>
+    <p class="meta">December 28, 2023</p>
+    <p>Metrics and dashboards don't tell you what matters. Here's what does.</p>
+  </div>
+
+  <div class="post">
+    <h3><a href="#">The Psychology of Pricing Page Visitors</a></h3>
+    <p class="meta">December 15, 2023</p>
+    <p>What visitors on your pricing page are really thinking, and how to help them decide.</p>
+  </div>
+</body>
+</html>

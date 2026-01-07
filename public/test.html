@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NowWhy Tracker Test - Home</title>
+  <script defer src="/tracker.js" data-project="pk_4aac0948076aae47d12ab263" data-endpoint="http://localhost:3000/api/v1/collect"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+    h1 { color: #1e293b; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; }
+    a { color: #3b82f6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 20px; }
+    .nav a { font-weight: 500; }
+    .nav a.active { color: #1e293b; border-bottom: 2px solid #3b82f6; }
+    .status { padding: 10px; border-radius: 4px; margin: 10px 0; }
+    .success { background: #dcfce7; color: #166534; }
+    .info { background: #dbeafe; color: #1e40af; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/test.html" class="active">Home</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/signup.html">Signup</a>
+    <a href="/features.html">Features</a>
+    <a href="/blog.html">Blog</a>
+  </nav>
+
+  <h1>Welcome to Test Site</h1>
+
+  <div class="card">
+    <h3>Tracker Status</h3>
+    <div id="status" class="status info">Checking tracker...</div>
+  </div>
+
+  <div class="card">
+    <h3>Test Instructions</h3>
+    <ol>
+      <li>Open the <a href="/live" target="_blank">Live Dashboard</a> in another tab</li>
+      <li>Click the navigation links above to visit different pages</li>
+      <li>Watch the dashboard update with your activity in real-time</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>Session Info</h3>
+    <p><strong>Current Path:</strong> <code id="path"></code></p>
+    <p><strong>Visitor ID:</strong> <code id="vid"></code></p>
+    <p><strong>Session ID:</strong> <code id="sid"></code></p>
+  </div>
+
+  <script>
+    document.getElementById('path').textContent = window.location.pathname;
+    document.getElementById('vid').textContent = localStorage.getItem('nw_vid') || '(generating...)';
+    document.getElementById('sid').textContent = sessionStorage.getItem('nw_sid') || '(generating...)';
+
+    setTimeout(() => {
+      const vid = localStorage.getItem('nw_vid');
+      const sid = sessionStorage.getItem('nw_sid');
+      const status = document.getElementById('status');
+
+      if (vid && sid) {
+        status.className = 'status success';
+        status.innerHTML = 'Tracking active! Check the <a href="/live" target="_blank">Live Dashboard</a>.';
+        document.getElementById('vid').textContent = vid;
+        document.getElementById('sid').textContent = sid;
+      }
+    }, 500);
+  </script>
+</body>
+</html>

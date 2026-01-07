@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing - Test Site</title>
+  <script defer src="/tracker.js" data-project="pk_4aac0948076aae47d12ab263" data-endpoint="http://localhost:3000/api/v1/collect"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+    h1 { color: #1e293b; }
+    .nav { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 20px; }
+    .nav a { font-weight: 500; color: #3b82f6; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+    .nav a.active { color: #1e293b; border-bottom: 2px solid #3b82f6; }
+    .pricing-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center; }
+    .price { font-size: 2rem; font-weight: bold; color: #1e293b; }
+    .btn { display: inline-block; background: #3b82f6; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/test.html">Home</a>
+    <a href="/pricing.html" class="active">Pricing</a>
+    <a href="/signup.html">Signup</a>
+    <a href="/features.html">Features</a>
+    <a href="/blog.html">Blog</a>
+  </nav>
+
+  <h1>Pricing Plans</h1>
+  <p>Choose the plan that works for you.</p>
+
+  <div class="pricing-card">
+    <h3>Starter</h3>
+    <div class="price">$19/mo</div>
+    <p>Perfect for small sites</p>
+    <a href="/signup.html" class="btn">Get Started</a>
+  </div>
+
+  <div class="pricing-card">
+    <h3>Pro</h3>
+    <div class="price">$49/mo</div>
+    <p>For growing businesses</p>
+    <a href="/signup.html" class="btn">Get Started</a>
+  </div>
+
+  <div class="pricing-card">
+    <h3>Enterprise</h3>
+    <div class="price">$99/mo</div>
+    <p>For large teams</p>
+    <a href="/signup.html" class="btn">Contact Sales</a>
+  </div>
+</body>
+</html>

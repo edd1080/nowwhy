@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features - Test Site</title>
+  <script defer src="/tracker.js" data-project="pk_4aac0948076aae47d12ab263" data-endpoint="http://localhost:3000/api/v1/collect"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+    h1 { color: #1e293b; }
+    .nav { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 20px; }
+    .nav a { font-weight: 500; color: #3b82f6; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+    .nav a.active { color: #1e293b; border-bottom: 2px solid #3b82f6; }
+    .feature { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; }
+    .feature h3 { margin-top: 0; color: #1e293b; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/test.html">Home</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/signup.html">Signup</a>
+    <a href="/features.html" class="active">Features</a>
+    <a href="/blog.html">Blog</a>
+  </nav>
+
+  <h1>Features</h1>
+  <p>Everything you need to understand your visitors.</p>
+
+  <div class="feature">
+    <h3>Real-time Visitor Feed</h3>
+    <p>See who's on your site right now, what they're looking at, and where they came from.</p>
+  </div>
+
+  <div class="feature">
+    <h3>AI Intent Classification</h3>
+    <p>Automatically understand what visitors are trying to do - evaluating pricing, signing up, or just browsing.</p>
+  </div>
+
+  <div class="feature">
+    <h3>Friction Detection</h3>
+    <p>Get alerted when visitors appear stuck or confused, so you can fix issues before they become problems.</p>
+  </div>
+
+  <div class="feature">
+    <h3>Slack Alerts</h3>
+    <p>Receive instant notifications when high-intent visitors are on your site.</p>
+  </div>
+</body>
+</html>

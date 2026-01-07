@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Test Site</title>
+  <script defer src="/tracker.js" data-project="pk_4aac0948076aae47d12ab263" data-endpoint="http://localhost:3000/api/v1/collect"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+    h1 { color: #1e293b; }
+    .nav { display: flex; gap: 20px; padding: 15px 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 20px; }
+    .nav a { font-weight: 500; color: #3b82f6; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+    .nav a.active { color: #1e293b; border-bottom: 2px solid #3b82f6; }
+    .form-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 30px; margin: 20px 0; }
+    input { width: 100%; padding: 12px; margin: 8px 0 16px 0; border: 1px solid #e2e8f0; border-radius: 6px; box-sizing: border-box; }
+    .btn { display: block; width: 100%; background: #3b82f6; color: white; padding: 12px 20px; border-radius: 6px; border: none; font-size: 16px; cursor: pointer; }
+    label { font-weight: 500; color: #374151; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/test.html">Home</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/signup.html" class="active">Signup</a>
+    <a href="/features.html">Features</a>
+    <a href="/blog.html">Blog</a>
+  </nav>
+
+  <h1>Create Your Account</h1>
+  <p>Get started in less than a minute.</p>
+
+  <div class="form-card">
+    <form onsubmit="event.preventDefault(); alert('This is a test form!');">
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com">
+
+      <label>Password</label>
+      <input type="password" placeholder="Choose a password">
+
+      <label>Company Name</label>
+      <input type="text" placeholder="Your company">
+
+      <button type="submit" class="btn">Create Account</button>
+    </form>
+  </div>
+</body>
+</html>
